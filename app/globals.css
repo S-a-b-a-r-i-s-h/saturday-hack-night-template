@@ -6,11 +6,11 @@
   .lightgreen{
     @apply text-[#C6EBC5]
   }
+  .lightgreenbg{
+    @apply bg-[#e1efe1]
+  }
   .dark{
     @apply bg-slate-800
-  }
-  .lightgreenbg{
-    @apply bg-[#C6EBC5]
   }
   .lightgreen2{
     @apply bg-[#d3fac7]
