@@ -6,4 +6,21 @@
   .lightgreen{
     @apply text-[#C6EBC5]
   }
+  .dark{
+    @apply bg-slate-800
+  }
+  .lightgreenbg{
+    @apply bg-[#C6EBC5]
+  }
+  .lightgreen2{
+    @apply bg-[#d3fac7]
+  }
+  .weirdgreen{
+    @apply bg-[#dde7c7]
+  }
+  .weirdgreen{
+    @apply bg-[#dde7c7]
+  }
 }
+
+
