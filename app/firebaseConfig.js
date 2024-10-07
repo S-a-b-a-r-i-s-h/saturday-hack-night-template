@@ -1,8 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore";
+const firebaseapikey = process.env.NEXT_PUBLIC_API_FIREBASE || 'Your API key'
 const firebaseConfig = {
-  apiKey: "AIzaSyCZO-ivT0yGPxbh1xvAhjCvM1W4gz3AtoY",
+  apiKey: firebaseapikey,
   authDomain: "fundhive-c1f14.firebaseapp.com",
   projectId: "fundhive-c1f14",
   storageBucket: "fundhive-c1f14.appspot.com",
