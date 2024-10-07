@@ -1,115 +1,155 @@
 "use client"
 import { useState } from 'react'
+import handler from './lib/actions/check';
 
 const page = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    address: "",
-    state: "",
-    why: ""
+    companyName: "",
+    contactInfo: "",
+    registrationDetails: "",
+    description: "",
+    website: "",
+    socialMedia: "",
+    missionGoals: "",
+    termsConditions: ""
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
+    // console.log(formData);
+    
+    await handler(formData);
   };
+
   return (
     <>
     <div className="min-h-screen lightgreenbg flex flex-col items-center p-6">
-    <div className="w-full max-w-2xl bg-white p-8 rounded-lg shadow-lg dark text-white">
-      <h1 className="text-6xl font-bold text-center mb-4">Become a <span className='bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-transparent bg-clip-text'>Volunteer</span></h1>
-      <p className="text-xl mt-12 mb-4">What you will do as a volunteer: </p>
-      <ul className=" list-inside text-lg mb-8 space-y-2">
-        <li>➯ Raise awareness and educate communities.</li>
-        <li>➯ Build and lead community initiatives.</li>
-        <li>➯ Oversee tree impact programs throught sales and seed return refunds.</li>
-        <li>➯ Develop and implement solutions to improve the environment.</li>
-      </ul>
+      <div className="w-full max-w-3xl bg-white p-8 rounded-lg shadow-lg dark text-white">
+        <h1 className="text-6xl font-bold text-center mb-4">Be a part of <span className='bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-transparent bg-clip-text'>FundHive</span></h1>
+        <p className="text-xl mt-12 mb-4">Fill out the form:</p>
 
-      <form className="space-y-6" onSubmit={handleSubmit}>
-        <div className="flex flex-col">
-          <label htmlFor="name" >Name</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            className="mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 lightgreenbg"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          <div className="flex flex-col">
+            <label htmlFor="companyName">Company Name</label>
+            <input
+              id="companyName"
+              name="companyName"
+              type="text"
+              className="text-black mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 lightgreenbg"
+              value={formData.companyName}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div className="flex flex-col">
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            className="mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 lightgreenbg"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className="flex flex-col">
+            <label htmlFor="contactInfo">Contact Information (Mail)</label>
+            <input
+              id="contactInfo"
+              name="contactInfo"
+              type="email"
+              className="text-black mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 lightgreenbg"
+              value={formData.contactInfo}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div className="flex flex-col">
-          <label htmlFor="address">Address</label>
-          <input
-            id="address"
-            name="address"
-            type="text"
-            className="mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 lightgreenbg"
-            value={formData.address}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className="flex flex-col">
+            <label htmlFor="registrationDetails">Registration Details</label>
+            <input
+              id="registrationDetails"
+              name="registrationDetails"
+              type="text"
+              className="text-black mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 lightgreenbg"
+              value={formData.registrationDetails}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div className="flex flex-col">
-          <label htmlFor="state">State</label>
-          <input
-            id="state"
-            name="state"
-            type="text"
-            className="mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 lightgreenbg"
-            value={formData.state}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className="flex flex-col">
+            <label htmlFor="description">Detailed Description</label>
+            <textarea
+              id="description"
+              name="description"
+              className="text-black mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 lightgreenbg"
+              value={formData.description}
+              onChange={handleChange}
+              rows="4"
+              required
+            />
+          </div>
 
-        <div className="flex flex-col">
-          <label htmlFor="story">Do you have a story to tell?</label>
-          <textarea
-            id="story"
-            name="story"
-            className="mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 lightgreenbg"
-            value={formData.why}
-            onChange={handleChange}
-            rows="4"
-          />
-        </div>
+          <div className="flex flex-col">
+            <label htmlFor="website">Company Website</label>
+            <input
+              id="website"
+              name="website"
+              type="url"
+              className="text-black mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 lightgreenbg"
+              value={formData.website}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <button
-          type="submit"
-          className="w-full bg-green-200 text-black p-2 rounded-md hover:bg-green-300 transition duration-300"
-        >
-          Submit
-        </button>
-      </form>
+          <div className="flex flex-col">
+            <label htmlFor="socialMedia">Social Media Account</label>
+            <input
+              id="socialMedia"
+              name="socialMedia"
+              type="text"
+              className="text-black mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 lightgreenbg"
+              value={formData.socialMedia}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="missionGoals">Mission and Goals</label>
+            <textarea
+              id="missionGoals"
+              name="missionGoals"
+              className="text-black mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 lightgreenbg"
+              value={formData.missionGoals}
+              onChange={handleChange}
+              rows="4"
+              required
+            />
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="termsConditions">Terms and Conditions</label>
+            <textarea
+              id="termsConditions"
+              name="termsConditions"
+              className="text-black mt-1 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 lightgreenbg"
+              value={formData.termsConditions}
+              onChange={handleChange}
+              rows="4"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full lightgreenbg text-black p-2 rounded-md hover:bg-green-200 transition duration-300"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
-  </>
-  )
-}
+    </>
+  );
+};
 
-export default page 
+export default page;

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Link from "next/link";
 
 const font = localFont({src: "./fonts/PPWriter-Thin.otf"});
 
@@ -19,6 +20,18 @@ export default function RootLayout({
       <body
         style={font.style}
       >
+        <nav className="p-6 text-3xl flex justify-between">
+          <Link 
+            href="/home"
+          >
+            FundHive
+          </Link>
+          <Link 
+            href="/listed"
+          >
+            Listed
+          </Link>
+        </nav>
         {children}
       </body>
     </html>
