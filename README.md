@@ -13,8 +13,8 @@ This a nextjs website that serves as a platform for legitimate crowdsourcing pla
 ## Link to product walkthrough
 Nil .. You have to fork the repo, and proceed with the how to configure to see it in action
 ## How it Works ?
-1. Companies can give all the necessary details in the form... 
-2. An algorithm runs in the server side that checks the website URL of the ccompany and the information provided
+1. Companies can give all the necessary details in the form... </ br>
+2. An algorithm runs in the server side that checks the website URL of the ccompany and the information provided </ br>
 2.1 WhoisAPI is used to get details of the website from the domain
 2.2 Gemini API is used to verify the legitimacy from the information given
 3. If the algorithm deems the company as legit, it gets listed on the site
